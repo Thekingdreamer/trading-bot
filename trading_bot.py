@@ -3,7 +3,7 @@ import time
 import pandas as pd
 import numpy as np
 import requests
-from kucoin.client import Client
+from kucoin.client import 
 from dotenv import load_dotenv
 
 # Cargar variables de entorno
