@@ -3,7 +3,7 @@ import time
 import pandas as pd
 import numpy as np
 import requests
-from kucoin.client import 
+from kucoin.client import Market, Trade, User  # ✅ Clases comunes
 from dotenv import load_dotenv
 
 # Cargar variables de entorno
