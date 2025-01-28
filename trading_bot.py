@@ -3,10 +3,7 @@ import time
 import pandas as pd
 import numpy as np
 import requests
-from kucoin.client import Trade  # Para operaciones de trading
-from kucoin.client import Market  # Para datos de mercado
-from kucoin.client import User  # Para información de usuario
-
+from kucoin.client import Client
 
 from dotenv import load_dotenv
 import os
