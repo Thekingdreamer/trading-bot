@@ -3,25 +3,22 @@ import time
 import pandas as pd
 import numpy as np
 import requests
-from kucoin.market import Market
-from kucoin.trade import Trade
-from kucoin.user import User
+from kucoin.client import Client  # Importa solo lo necesario
 
-from kucoin import market, trade, user
-help(market)
-help(trade)
-help(user)
-
-from kucoin.client import Client
-
+# Configurar el cliente de KuCoin
 client = Client(
     api_key=os.getenv("KUCOIN_API_KEY"),
     api_secret=os.getenv("KUCOIN_API_SECRET"),
     passphrase=os.getenv("KUCOIN_API_PASSPHRASE")
 )
-def enviar_alerta(mensaje):
-    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage?chat_id={TELEGRAM_CHAT_ID}&text={mensaje}"
-    requests.get(url).json()
+
+# Prueba de conexión (opcional)
+try:
+    account_info = client.get_account_list()  # Ejemplo de prueba
+    print("Conexión exitosa con KuCoin:", account_info)
+except Exception as e:
+    print("Error conectando con KuCoin:", e)
+
 
 def calcular_rsi(data, periodo=14):
     delta = data['close'].diff()
