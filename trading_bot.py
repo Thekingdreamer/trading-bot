@@ -3,23 +3,22 @@ import time
 import pandas as pd
 import numpy as np
 import requests
-from kucoin.client import Market, Trade, User  # ✅ Clases comunes
-from dotenv import load_dotenv
+from kucoin.market import Market
+from kucoin.trade import Trade
+from kucoin.user import User
 
-# Cargar variables de entorno
-load_dotenv()
+from kucoin import market, trade, user
+help(market)
+help(trade)
+help(user)
 
-# Configurar API de KuCoin
+from kucoin.client import Client
+
 client = Client(
     api_key=os.getenv("KUCOIN_API_KEY"),
     api_secret=os.getenv("KUCOIN_API_SECRET"),
     passphrase=os.getenv("KUCOIN_API_PASSPHRASE")
 )
-
-# Configurar Telegram
-TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
-TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
-
 def enviar_alerta(mensaje):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage?chat_id={TELEGRAM_CHAT_ID}&text={mensaje}"
     requests.get(url).json()
