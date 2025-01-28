@@ -5,6 +5,26 @@ import numpy as np
 import requests
 from kucoin.client import Client  # Importa solo lo necesario
 
+from dotenv import load_dotenv
+import os
+
+# Cargar las variables de entorno desde el archivo .env
+load_dotenv()
+
+# Acceder a las variables
+api_key = os.getenv("KUCOIN_API_KEY")
+api_secret = os.getenv("KUCOIN_API_SECRET")
+passphrase = os.getenv("KUCOIN_API_PASSPHRASE")
+
+
+# Imprimir para verificar que las variables se están cargando correctamente
+print("API Key:", api_key)
+print("API Secret:", api_secret)
+print("Passphrase:", passphrase)
+print("Telegram Token:", telegram_token)
+print("Telegram Chat ID:", telegram_chat_id)
+
+
 # Configurar el cliente de KuCoin
 client = Client(
     api_key=os.getenv("KUCOIN_API_KEY"),
